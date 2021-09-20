@@ -8,7 +8,13 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
-variable "instance_name" {
-  description = "EC2 instance name"
-  default     = "Provisioned through TFC"
+variable "bucket" {
+  description: "S3 bucket"
+  default: sm-test-tfc.link
+}
+
+
+variable "domain" {
+ description: Domain name
+ default: sm-test-tfc
 }
