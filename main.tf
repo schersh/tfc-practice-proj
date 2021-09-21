@@ -32,14 +32,14 @@ resource "aws_s3_bucket" "b" {
 resource "aws_s3_bucket_object" "index" {
   bucket = var.bucket
   key    = "index_file"
-  source = "/index.html"
+  source = "index.html"
 
 }
 
 resource "aws_s3_bucket_object" "error" {
   bucket = var.bucket
   key    = "error_file"
-  source = "/error.html"
+  source = "error.html"
 
 }
 
@@ -49,7 +49,8 @@ resource "aws_route53_zone" "primary" {
 
 resource "aws_route53_record" "www" {
   zone_id = aws_route53_zone.primary.zone_id
-  name    = "sm-test-tfc.link"
+  name    = "www.sm-test-tfc.link"
   type    = "A"
   ttl     = "300"
+  records = ["sm-test-tfc.link"]
 }
