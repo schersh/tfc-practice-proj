@@ -48,7 +48,8 @@ resource "aws_route53_zone" "primary" {
 }
 
 data "aws_route53_zone" "selected" {
-  name         = "sm-test-tfc.link"
+  name = "sm-test-tfc.link"
+  private_zone = false
 }
 
 resource "aws_route53_record" "www" {
