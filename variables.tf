@@ -9,12 +9,12 @@ variable "instance_type" {
 }
 
 variable "bucket" {
-  description: "S3 bucket"
-  default: sm-test-tfc.link
+  description = "S3 bucket"
+  default     = sm-test-tfc.link
 }
 
 
 variable "domain" {
- description: Domain name
- default: sm-test-tfc
+ description = Domain name
+ default     = sm-test-tfc
 }
