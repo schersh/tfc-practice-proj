@@ -26,13 +26,3 @@ resource "aws_s3_bucket_object" "object" {
   source = "/error.html"
 
 }
-
-resource "aws_route53_zone" "domain" {
-  name = var.link
-}
-
-resource "aws_route53_key_signing_key" "domain" {
-  hosted_zone_id             = aws_route53_zone.var.domain.id
-  key_management_service_arn = aws_kms_key.var.domain.arn
-  name                       = var.link
-}
