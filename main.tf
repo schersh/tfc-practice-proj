@@ -51,6 +51,9 @@ resource "aws_route53_record" "www" {
   zone_id = aws_route53_zone.primary.zone_id
   name    = "www.sm-test-tfc.link"
   type    = "A"
-  ttl     = "300"
-  records = ["sm-test-tfc.link"]
+  alias {
+    name                   = "sm-test-tfc.link"
+    zone_id                = aws_route53_zone.primary.zone_id
+    evaluate_target_health = false
+  }
 }
