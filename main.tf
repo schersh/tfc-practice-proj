@@ -54,7 +54,7 @@ data "aws_route53_zone" "selected" {
 
 resource "aws_route53_record" "www" {
   zone_id = data.aws_route53_zone.selected.zone_id
-  name    = "www.sm-test-tfc.link"
+  name    = "sm-test-tfc.link"
   type    = "A"
   alias {
     name                   = "www.${data.aws_route53_zone.selected.name}"
