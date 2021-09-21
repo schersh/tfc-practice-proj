@@ -16,5 +16,5 @@ variable "bucket" {
 
 variable "domain" {
  description = "Domain name"
- default     = "sm-test-tfc"
+ default     = "sm-test-tfc.link"
 }
