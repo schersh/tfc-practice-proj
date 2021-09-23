@@ -52,7 +52,7 @@ resource "aws_route53_record" "www" {
   name    = "sm-test-tfc.link"
   type    = "A"
   alias {
-    name                   = resource.aws_s3_bucket.b.bucket_regional_domain_name
+    name                   = resource.aws_s3_bucket.b.website_endpoint
     zone_id                = resource.aws_s3_bucket.b.hosted_zone_id
     evaluate_target_health = false
   }
