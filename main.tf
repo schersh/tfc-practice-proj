@@ -53,7 +53,7 @@ resource "aws_route53_record" "www" {
   type    = "A"
   alias {
     name                   = resource.aws_s3_bucket.b.bucket_domain_name
-    zone_id                = resource.aws_route53_zone.primary.zone_id
+    zone_id                = resource.aws_s3_bucket.b.hosted_zone_id
     evaluate_target_health = false
   }
 }
