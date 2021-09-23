@@ -47,18 +47,13 @@ resource "aws_route53_zone" "primary" {
   name = "sm-test-tfc.link"
 }
 
-data "aws_route53_zone" "selected" {
-  name = "sm-test-tfc.link"
-  private_zone = false
-}
-
 resource "aws_route53_record" "www" {
-  zone_id = data.aws_route53_zone.selected.zone_id
+  zone_id = resource.aws_route53_zone.primary.zone_id
   name    = "sm-test-tfc.link"
   type    = "A"
   alias {
-    name                   = "www.${data.aws_route53_zone.selected.name}"
-    zone_id                = data.aws_route53_zone.selected.zone_id
+    name                   = "www.${resource.aws_route53_zone.primary.name}"
+    zone_id                = resource.aws_route53_zone.primary.zone_id
     evaluate_target_health = false
   }
 }
