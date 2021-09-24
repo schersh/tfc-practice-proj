@@ -31,14 +31,14 @@ resource "aws_s3_bucket" "b" {
 
 resource "aws_s3_bucket_object" "index" {
   bucket = var.bucket
-  key    = "index_file"
+  key    = "index.file"
   source = "index.html"
 
 }
 
 resource "aws_s3_bucket_object" "error" {
   bucket = var.bucket
-  key    = "error_file"
+  key    = "error.file"
   source = "error.html"
 
 }
